@@ -12,10 +12,10 @@ const PORT = process.env.PORT || 3000;
 await dbConnect();
 app.use(express.json());
 
+const allowedOrigins = [process.env.FRONTEND_URL,"http://localhost:5173"];
 app.use(cors(
   {
-  origin:process.env.FRONTEND_URL,   // or 3000 based on your app
-  credentials: true
+  origin:allowedOrigins,
   }
 ));
 
